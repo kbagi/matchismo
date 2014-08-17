@@ -9,13 +9,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Matchismo/Model/CardMatchingGame.swift"
-            timestampString = "429738845.095848"
+            filePath = "Matchismo/Model/SetCard.swift"
+            timestampString = "429904182.727339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "chooseCardAtIndex(_:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "SetCard"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Matchismo/Model/SetDeck.swift"
+            timestampString = "429909677.997256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,14 +41,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Matchismo/Model/CardMatchingGame.swift"
-            timestampString = "429739009.025269"
+            filePath = "Matchismo/Model/SetDeck.swift"
+            timestampString = "429909684.360214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "chooseCardAtIndex(_:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "init()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Matchismo.SetDeck.init (Matchismo.SetDeck.Type)() -&gt; Matchismo.SetDeck"
+                  moduleName = "Matchismo"
+                  urlString = "file:///Users/Karol/Development/App_development/iOS/Projects/Matchismo/Matchismo/Model/SetDeck.swift"
+                  timestampString = "429909684.362176"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "3001">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Matchismo.SetDeck.init (Matchismo.SetDeck.Type)() -&gt; Matchismo.SetDeck"
+                  moduleName = "Matchismo"
+                  urlString = "file:///Users/Karol/Development/App_development/iOS/Projects/Matchismo/Matchismo/Model/SetDeck.swift"
+                  timestampString = "429909684.362376"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "3015">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -41,13 +87,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Matchismo/ViewController.swift"
-            timestampString = "429747303.146736"
+            filePath = "Matchismo/Model/SetDeck.swift"
+            timestampString = "429909685.782045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "historySliderChanged(_:)"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

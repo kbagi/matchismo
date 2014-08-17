@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+class SetDeck : Deck {
+    override init() {
+        super.init()
+        
+        for colour in 0...2 {
+            for symbol in 0...2 {
+                for shading in 0...2 {
+                    for count in 1...3 {
+                        var card = SetCard()
+                        card.colour = SetCard.Colour.fromRaw(colour);
+                        card.shading = SetCard.Shading.fromRaw(shading);
+                        card.symbol = SetCard.Symbol.fromRaw(symbol);
+                        card.count = count;
+                        self.addCard(card);
+                    }
+                }
+            }
+        }
+    }
+
+}

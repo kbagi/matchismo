@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct FlipResult{
+    var type:ResultType = ResultType.Flip
+    var points:Int = 0
+    var cards:[Card] = [Card]();
+    enum ResultType{
+        case SuccessfulMatch
+        case UnsuccesfullMatch
+        case Flip
+        case None
+    }
+}

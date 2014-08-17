@@ -14,7 +14,11 @@ var ints:[Int] = [1,2,3,4]
 
 find(ints, 3)!
 
+enum Symbols : Int{
+    case Diamond = 0, Squiggle, Oval
+}
 
+Symbols.fromRaw(0)
 
 
 

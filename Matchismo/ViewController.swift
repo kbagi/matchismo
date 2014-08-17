@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var modeButton: UIView!
     @IBOutlet weak var considerationLabel: UILabel!
-    @IBOutlet weak var historySlider: UISlider!
+    //@IBOutlet weak var historySlider: UISlider!
     var _game:CardMatchingGame?;
     var game:CardMatchingGame{
         get{
@@ -27,21 +27,20 @@ class ViewController: UIViewController {
             return _game!;
         }
     }
-    var currentMessage = "Welcome to Matchismo!";
-    var messageHistory = [String]();
+    var currentMessage = NSMutableAttributedString(string: "Welcome to Matchismo!");
+    var messageHistory = [NSMutableAttributedString]();
     
-    @IBAction func historySliderChanged(sender: UISlider) {
-        var index = Int(sender.value);
-        if index < messageHistory.count {
-            considerationLabel.text = messageHistory[index];
-        }
-    }
+    //    @IBAction func historySliderChanged(sender: UISlider) {
+    //        var index = Int(sender.value);
+    //        if index < messageHistory.count {
+    //            considerationLabel.text = messageHistory[index];
+    //        }
+    //    }
     @IBAction func touchCardButton(sender: UIButton) {
         var chosenButtonIndex = find(cardButtons!, sender)!;
-        currentMessage = game.chooseCardAtIndex(chosenButtonIndex);
+        var flipResult = game.chooseCardAtIndex(chosenButtonIndex);
+        currentMessage = getMessage(flipResult);
         messageHistory.append(currentMessage);
-        historySlider.maximumValue = Float(messageHistory.count);
-        historySlider.value = historySlider.maximumValue;
         modeButton.userInteractionEnabled = false;
         updateUI();
     }
@@ -64,7 +63,7 @@ class ViewController: UIViewController {
             cardButton.setBackgroundImage(backgroundImageForCard(card), forState: UIControlState.Normal);
             cardButton.enabled = !card.matched;
             scoreLabel.text = "Score \(self.game.score)"
-            considerationLabel.text = currentMessage;
+            considerationLabel.text = currentMessage.string;
         }
     }
     func titleForCard(card:Card) -> String{
@@ -75,8 +74,47 @@ class ViewController: UIViewController {
     }
     func resetGame(){
         _game = nil;
-        modeButton.userInteractionEnabled = true;
+        if(modeButton != nil){
+            modeButton.userInteractionEnabled = true;
+        }
+        clearHistory();
         updateUI();
+    }
+    func getMessage(flipResult : FlipResult) -> NSMutableAttributedString{
+        var string = NSMutableAttributedString()
+        var stringRaw = String()
+        switch flipResult.type{
+        case .Flip:
+            for c in flipResult.cards{
+                stringRaw += "Selected \(c.contents)"
+            }
+        case .None:
+            stringRaw = "Flipped back"
+        case .UnsuccesfullMatch:
+            for c in flipResult.cards{
+                stringRaw += "\(c.contents)"
+            }
+            stringRaw += "don’t match! \(flipResult.points) point penalty!"
+        case .SuccessfulMatch:
+            stringRaw += "Matched "
+            for c in flipResult.cards{
+                stringRaw += "\(c.contents)"
+            }
+            stringRaw += "for \(flipResult.points) points."
+        }
+        string = NSMutableAttributedString(string: stringRaw);
+        return string;
+    }
+    func clearHistory(){
+        messageHistory = [NSMutableAttributedString]();
+        currentMessage = NSMutableAttributedString();
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        
+        if (segue.destinationViewController is HistoryViewController) {
+            var vc : HistoryViewController = segue.destinationViewController as HistoryViewController;
+            vc.messageHistory = self.messageHistory;
+        }
     }
     
 }

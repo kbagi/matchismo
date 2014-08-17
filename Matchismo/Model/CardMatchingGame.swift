@@ -45,49 +45,57 @@ class CardMatchingGame {
     func cardAtIndex(index:Int) -> Card?{
         return index < cards.count ? cards[index] : nil;
     }
-    func chooseCardAtIndex(index:Int) -> String {
+    func chooseCardAtIndex(index:Int) -> FlipResult {
         var card = cards[index]
-        var message = card.contents;
+        var flipResult = FlipResult();
+       
         if !card.matched{
             if card.chosen{
                 card.chosen = false;
-                message = "";
+                flipResult.type = FlipResult.ResultType.None;
             }else{
-                var cardsToMatch:[Card] = [Card]();
+                //var cardsToMatch:[Card] = [Card]();
                 for otherCard in cards{
                     if otherCard.chosen && !otherCard.matched{
-                        cardsToMatch.append(otherCard)
+                        //cardsToMatch.append(otherCard)
+                        flipResult.cards.append(otherCard)
                     }
                 }
-                if(mode == 0 && cardsToMatch.count == 1) || (mode == 1 && cardsToMatch.count == 2){
-                    var matchScore = card.match(cardsToMatch);
-                    message = "";
+                
+                if(mode == 0 && flipResult.cards.count == 1) || (mode == 1 && flipResult.cards.count == 2){
+                    var matchScore = card.match(flipResult.cards);
                     if matchScore > 0 {
                         score += matchScore * MATCH_BONUS;
                         card.matched = true;
-                        message += "Matched \(card.contents)"
-                        for card in cardsToMatch
+                        flipResult.points = matchScore * MATCH_BONUS;
+                        flipResult.type = FlipResult.ResultType.SuccessfulMatch;
+                        //message += "Matched \(card.contents)"
+                        for card in flipResult.cards
                         {
                             card.matched = true;
-                            message += "\(card.contents) "
+                            //message += "\(card.contents) "
                         }
-                        message += "for \(matchScore * MATCH_BONUS) points."
+                        //message += "for \(matchScore * MATCH_BONUS) points."
                     }else{
                         score -= MISMATCH_PENALTY
-                        message += "\(card.contents) ";
-                        for card in cardsToMatch
+                        //message += "\(card.contents) ";
+                        for card in flipResult.cards
                         {
                             card.chosen = false;
-                             message += "\(card.contents) ";
+                             //message += "\(card.contents) ";
                         }
-                         message += "don’t match! \(MISMATCH_PENALTY) point penalty!"
-                        
+                         //message += "don’t match! \(MISMATCH_PENALTY) point penalty!"
+                        flipResult.points = MISMATCH_PENALTY;
+                        flipResult.type = FlipResult.ResultType.UnsuccesfullMatch;
                     }
+                }else{
+                    flipResult.cards = [Card]();
                 }
                 score -= COST_TO_CHOOSE;
                 card.chosen = true;
             }
         }
-        return message;
+        flipResult.cards.insert(card, atIndex: 0)
+        return flipResult;
     }
 }

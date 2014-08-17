@@ -16,7 +16,7 @@ class Card{
     }
     var contents:String{
         get {
-            return _contents!
+            return _contents != nil ? _contents! : ""
         }
     }
     
