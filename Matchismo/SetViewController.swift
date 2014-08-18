@@ -20,19 +20,18 @@ class SetViewController: ViewController {
         }
     }
     
-    override func touchCardButton(sender: UIButton) {
-        var chosenButtonIndex = find(cardButtons!, sender)!;
-        var message = game.chooseCardAtIndex(chosenButtonIndex);
-        messageHistory.append(currentMessage);
-        updateUI();
-    }
+    //    override func touchCardButton(sender: UIButton) {
+    //        var chosenButtonIndex = find(cardButtons!, sender)!;
+    //        var message = game.chooseCardAtIndex(chosenButtonIndex);
+    //        messageHistory.append(currentMessage);
+    //        updateUI();
+    //    }
     
     override func resetGame() {
         super.resetGame()
         for cardButton in cardButtons{
             var cardButtonIndex = find(cardButtons!, cardButton)!;
             setCardContents(cardButton, card: game.cards[cardButtonIndex] as SetCard)
-            
         }
     }
     
@@ -40,6 +39,8 @@ class SetViewController: ViewController {
         redrawCards();
         scoreLabel.text = "Score \(self.game.score)"
         considerationLabel.attributedText = currentMessage;
+        var m = currentMessage.string;
+        
     }
     
     override func createDeck() -> Deck{
@@ -67,13 +68,49 @@ class SetViewController: ViewController {
     }
     
     func setCardContents(button:UIButton, card : SetCard){
-        
+        var symbols = getCardContents(card)
+        button.setAttributedTitle(symbols, forState: UIControlState.Normal)
+    }
+    
+    override func getMessage(flipResult : FlipResult) -> NSMutableAttributedString{
+        var string = NSMutableAttributedString()
+        var stringRaw = String()
+        switch flipResult.type{
+        case .Flip:
+            for c in flipResult.cards{
+                string.appendAttributedString(getCardContents(c as SetCard))
+            }
+        case .None:
+            stringRaw = "Flipped back ";
+            string.appendAttributedString(NSAttributedString(string: stringRaw));
+        case .UnsuccesfullMatch:
+            for c in flipResult.cards{
+                string.appendAttributedString(getCardContents(c as SetCard))
+                 string.appendAttributedString(NSMutableAttributedString(string: " "))
+            }
+            stringRaw = " don’t match! \(flipResult.points) point penalty!"
+            string.appendAttributedString(NSAttributedString(string: stringRaw));
+        case .SuccessfulMatch:
+            stringRaw = "Matched "
+            string.appendAttributedString(NSAttributedString(string: stringRaw));
+            for c in flipResult.cards{
+                string.appendAttributedString(getCardContents(c as SetCard))
+                 string.appendAttributedString(NSMutableAttributedString(string: " "))
+            }
+            stringRaw = " for \(flipResult.points) points."
+            string.appendAttributedString(NSAttributedString(string: stringRaw));
+        }
+        //string = NSMutableAttributedString(string: stringRaw);
+        return string;
+    }
+    
+    func getCardContents(setCard : SetCard) -> NSMutableAttributedString{
         var dic:NSMutableDictionary = NSMutableDictionary()
         var symbolRaw:String = ""
         var colour = UIColor.greenColor();
         
-        for index in 1...card.count! {
-            switch card.symbol! {
+        for index in 1...setCard.count! {
+            switch setCard.symbol! {
             case .Diamond:
                 symbolRaw += "▲"
             case .Oval:
@@ -83,33 +120,33 @@ class SetViewController: ViewController {
             }
         }
         
-        switch card.colour! {
+        switch setCard.colour! {
         case .Green:
             colour = UIColor.greenColor()
         case .Purple:
-           colour = UIColor.purpleColor();
+            colour = UIColor.purpleColor();
         case .Red:
             colour = UIColor.redColor();
         }
-       
-        switch card.shading! {
+        
+        switch setCard.shading! {
         case .Open:
             dic[NSForegroundColorAttributeName] = colour.colorWithAlphaComponent(0);
             dic[NSStrokeColorAttributeName] = colour;
-             dic[NSStrokeWidthAttributeName] = -5;
+            dic[NSStrokeWidthAttributeName] = -5;
         case .Solid:
             dic[NSForegroundColorAttributeName] = colour.colorWithAlphaComponent(1);
-             dic[NSStrokeColorAttributeName] = colour;
-             dic[NSStrokeWidthAttributeName] = -5;
+            dic[NSStrokeColorAttributeName] = colour;
+            dic[NSStrokeWidthAttributeName] = -5;
         case .Striped:
             dic[NSForegroundColorAttributeName] = colour.colorWithAlphaComponent(0.3);
-             dic[NSStrokeColorAttributeName] = colour;
+            dic[NSStrokeColorAttributeName] = colour;
             dic[NSStrokeWidthAttributeName] = -5;
         }
         
         var symbols:NSMutableAttributedString = NSMutableAttributedString(string: symbolRaw, attributes: dic)
         
-        //cardButton.setTitle("", forState: UIControlState.Normal)
-        button.setAttributedTitle(symbols, forState: UIControlState.Normal)
+        return symbols
     }
+    
 }

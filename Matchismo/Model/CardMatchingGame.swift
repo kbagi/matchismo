@@ -48,20 +48,16 @@ class CardMatchingGame {
     func chooseCardAtIndex(index:Int) -> FlipResult {
         var card = cards[index]
         var flipResult = FlipResult();
-       
         if !card.matched{
             if card.chosen{
                 card.chosen = false;
                 flipResult.type = FlipResult.ResultType.None;
             }else{
-                //var cardsToMatch:[Card] = [Card]();
                 for otherCard in cards{
                     if otherCard.chosen && !otherCard.matched{
-                        //cardsToMatch.append(otherCard)
                         flipResult.cards.append(otherCard)
                     }
                 }
-                
                 if(mode == 0 && flipResult.cards.count == 1) || (mode == 1 && flipResult.cards.count == 2){
                     var matchScore = card.match(flipResult.cards);
                     if matchScore > 0 {
@@ -69,22 +65,16 @@ class CardMatchingGame {
                         card.matched = true;
                         flipResult.points = matchScore * MATCH_BONUS;
                         flipResult.type = FlipResult.ResultType.SuccessfulMatch;
-                        //message += "Matched \(card.contents)"
                         for card in flipResult.cards
                         {
                             card.matched = true;
-                            //message += "\(card.contents) "
                         }
-                        //message += "for \(matchScore * MATCH_BONUS) points."
                     }else{
                         score -= MISMATCH_PENALTY
-                        //message += "\(card.contents) ";
                         for card in flipResult.cards
                         {
                             card.chosen = false;
-                             //message += "\(card.contents) ";
                         }
-                         //message += "don’t match! \(MISMATCH_PENALTY) point penalty!"
                         flipResult.points = MISMATCH_PENALTY;
                         flipResult.type = FlipResult.ResultType.UnsuccesfullMatch;
                     }

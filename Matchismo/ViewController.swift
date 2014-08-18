@@ -41,7 +41,9 @@ class ViewController: UIViewController {
         var flipResult = game.chooseCardAtIndex(chosenButtonIndex);
         currentMessage = getMessage(flipResult);
         messageHistory.append(currentMessage);
-        modeButton.userInteractionEnabled = false;
+        if(modeButton != nil){
+            modeButton.userInteractionEnabled = false;
+        }
         updateUI();
     }
     @IBAction func redealButton(sender: UIButton) {
