@@ -1,6 +1,7 @@
 // Playground - noun: a place where people can play
 
 import Cocoa
+import Foundation
 
 var karol = "karol"
 var stasiu = "stasiu"
@@ -19,6 +20,32 @@ enum Symbols : Int{
 }
 
 Symbols.fromRaw(0)
+
+
+var opt: Int?
+
+enum TrainStatus{
+    case OnTime
+    case Delayed(Int)
+    
+    func desc() -> String{
+        switch self{
+        case OnTime:
+            return "cool"
+        case Delayed(let minutes):
+            return "sdad \(minutes)"
+        }
+    }
+}
+
+
+var status = TrainStatus.OnTime
+
+status = .Delayed(5)
+
+status.desc()
+
+
 
 
 

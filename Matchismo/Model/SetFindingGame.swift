@@ -7,7 +7,7 @@
 //
 
 class SetFindingGame : CardMatchingGame {
-    let SET_MATCH_BONUS = 2
+    let SET_MATCH_BONUS = 5
     let SET_COST_TO_CHOOSE = 0
     let SET_MISMATCH_PENALTY = 10
     
@@ -29,7 +29,7 @@ class SetFindingGame : CardMatchingGame {
                     if matchScore > 0 {
                         score += matchScore * SET_MATCH_BONUS;
                         card.matched = true;
-                        flipResult.points = matchScore * MATCH_BONUS;
+                        flipResult.points = matchScore * SET_MATCH_BONUS;
                         flipResult.type = FlipResult.ResultType.SuccessfulMatch;
                         for card in flipResult.cards
                         {
