@@ -21,7 +21,6 @@
 		F9F5EAB1199FCA29008C4757 /* SetFindingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAB0199FCA29008C4757 /* SetFindingGame.swift */; };
 		F9F5EAB3199FCB72008C4757 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAB2199FCB72008C4757 /* SetCard.swift */; };
 		F9F5EAB5199FCBC4008C4757 /* SetDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAB4199FCBC4008C4757 /* SetDeck.swift */; };
-		F9F5EAB719A0C6B6008C4757 /* Iphone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F5EAB619A0C6B6008C4757 /* Iphone4.storyboard */; };
 		F9F5EABB19A0D98E008C4757 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EABA19A0D98E008C4757 /* HistoryViewController.swift */; };
 		F9F5EABD19A138D7008C4757 /* MatchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EABC19A138D7008C4757 /* MatchResults.swift */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F951618719994A1200CA9F66 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F9516188199978F200CA9F66 /* CardMatchingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardMatchingGame.swift; path = Model/CardMatchingGame.swift; sourceTree = "<group>"; };
 		F96444D41997C16200105347 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96444D81997C16200105347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 		F9F5EAB0199FCA29008C4757 /* SetFindingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetFindingGame.swift; path = Model/SetFindingGame.swift; sourceTree = "<group>"; };
 		F9F5EAB2199FCB72008C4757 /* SetCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetCard.swift; path = Model/SetCard.swift; sourceTree = "<group>"; };
 		F9F5EAB4199FCBC4008C4757 /* SetDeck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetDeck.swift; path = Model/SetDeck.swift; sourceTree = "<group>"; };
-		F9F5EAB619A0C6B6008C4757 /* Iphone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Iphone4.storyboard; sourceTree = "<group>"; };
 		F9F5EABA19A0D98E008C4757 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F9F5EABC19A138D7008C4757 /* MatchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchResults.swift; path = Model/MatchResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,8 +104,6 @@
 				F96444E01997C16200105347 /* Images.xcassets */,
 				F96444D71997C16200105347 /* Supporting Files */,
 				F98679DB19983100004A08BB /* Model */,
-				F951618719994A1200CA9F66 /* MyPlayground.playground */,
-				F9F5EAB619A0C6B6008C4757 /* Iphone4.storyboard */,
 			);
 			path = Matchismo;
 			sourceTree = "<group>";
@@ -237,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F96444DF1997C16200105347 /* Main.storyboard in Resources */,
-				F9F5EAB719A0C6B6008C4757 /* Iphone4.storyboard in Resources */,
 				F96444E11997C16200105347 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
