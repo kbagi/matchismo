@@ -17,6 +17,8 @@
 		F98679DD19983194004A08BB /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98679DC19983194004A08BB /* PlayingCard.swift */; };
 		F98679DF199831B3004A08BB /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98679DE199831B3004A08BB /* Deck.swift */; };
 		F98679E119983217004A08BB /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98679E019983217004A08BB /* PlayingCardDeck.swift */; };
+		F9BE9A3F19AD24AA0087810B /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BE9A3E19AD24AA0087810B /* Grid.m */; };
+		F9BE9A4319AD400C0087810B /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE9A4219AD400C0087810B /* PlayingCardView.swift */; };
 		F9F5EAAF199FC7C8008C4757 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAAE199FC7C8008C4757 /* SetViewController.swift */; };
 		F9F5EAB1199FCA29008C4757 /* SetFindingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAB0199FCA29008C4757 /* SetFindingGame.swift */; };
 		F9F5EAB3199FCB72008C4757 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAB2199FCB72008C4757 /* SetCard.swift */; };
@@ -50,6 +52,10 @@
 		F98679DC19983194004A08BB /* PlayingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingCard.swift; path = Model/PlayingCard.swift; sourceTree = "<group>"; };
 		F98679DE199831B3004A08BB /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Deck.swift; path = Model/Deck.swift; sourceTree = "<group>"; };
 		F98679E019983217004A08BB /* PlayingCardDeck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingCardDeck.swift; path = Model/PlayingCardDeck.swift; sourceTree = "<group>"; };
+		F9BE9A3C19AD24AA0087810B /* Matchismo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Matchismo-Bridging-Header.h"; sourceTree = "<group>"; };
+		F9BE9A3D19AD24AA0087810B /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		F9BE9A3E19AD24AA0087810B /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
+		F9BE9A4219AD400C0087810B /* PlayingCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingCardView.swift; path = View/PlayingCardView.swift; sourceTree = "<group>"; };
 		F9F5EAAE199FC7C8008C4757 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		F9F5EAB0199FCA29008C4757 /* SetFindingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetFindingGame.swift; path = Model/SetFindingGame.swift; sourceTree = "<group>"; };
 		F9F5EAB2199FCB72008C4757 /* SetCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetCard.swift; path = Model/SetCard.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 				F9F5EAAE199FC7C8008C4757 /* SetViewController.swift */,
 				F9F5EABA19A0D98E008C4757 /* HistoryViewController.swift */,
 				F98679DB19983100004A08BB /* Model */,
+				F9BE9A4119AD24C30087810B /* View */,
 				F96444E01997C16200105347 /* Images.xcassets */,
 				F96444D71997C16200105347 /* Supporting Files */,
 			);
@@ -148,6 +155,17 @@
 				F9F5EABC19A138D7008C4757 /* MatchResults.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F9BE9A4119AD24C30087810B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9BE9A3D19AD24AA0087810B /* Grid.h */,
+				F9BE9A3E19AD24AA0087810B /* Grid.m */,
+				F9BE9A3C19AD24AA0087810B /* Matchismo-Bridging-Header.h */,
+				F9BE9A4219AD400C0087810B /* PlayingCardView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +271,7 @@
 				F9F5EAB3199FCB72008C4757 /* SetCard.swift in Sources */,
 				F9F5EAB5199FCBC4008C4757 /* SetDeck.swift in Sources */,
 				F96444DC1997C16200105347 /* ViewController.swift in Sources */,
+				F9BE9A3F19AD24AA0087810B /* Grid.m in Sources */,
 				F9F5EABB19A0D98E008C4757 /* HistoryViewController.swift in Sources */,
 				F98679D9199830EF004A08BB /* Card.swift in Sources */,
 				F9F5EABD19A138D7008C4757 /* MatchResults.swift in Sources */,
@@ -262,6 +281,7 @@
 				F9F5EAAF199FC7C8008C4757 /* SetViewController.swift in Sources */,
 				F98679DD19983194004A08BB /* PlayingCard.swift in Sources */,
 				F9F5EAB1199FCA29008C4757 /* SetFindingGame.swift in Sources */,
+				F9BE9A4319AD400C0087810B /* PlayingCardView.swift in Sources */,
 				F96444DA1997C16200105347 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,10 +398,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Matchismo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Matchismo/Matchismo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -390,10 +414,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Matchismo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Matchismo/Matchismo-Bridging-Header.h";
 			};
 			name = Release;
 		};
