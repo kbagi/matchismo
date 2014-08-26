@@ -97,13 +97,13 @@
 		F96444D61997C16200105347 /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
+				F96444DD1997C16200105347 /* Main.storyboard */,
 				F96444DB1997C16200105347 /* ViewController.swift */,
 				F9F5EAAE199FC7C8008C4757 /* SetViewController.swift */,
 				F9F5EABA19A0D98E008C4757 /* HistoryViewController.swift */,
-				F96444DD1997C16200105347 /* Main.storyboard */,
+				F98679DB19983100004A08BB /* Model */,
 				F96444E01997C16200105347 /* Images.xcassets */,
 				F96444D71997C16200105347 /* Supporting Files */,
-				F98679DB19983100004A08BB /* Model */,
 			);
 			path = Matchismo;
 			sourceTree = "<group>";

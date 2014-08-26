@@ -65,6 +65,9 @@
                                     <action selector="changeMode:" destination="vXZ-lx-hvc" eventType="valueChanged" id="6bS-Tr-Ah1"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJx-zM-x3W">
+                                <rect key="frame" x="16" y="20" width="564" height="450"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -75,14 +78,18 @@
                             <constraint firstItem="Zxz-X9-WrY" firstAttribute="baseline" secondItem="FDT-YW-jGl" secondAttribute="baseline" constant="42.5" id="56J-nw-6GD"/>
                             <constraint firstItem="Zxz-X9-WrY" firstAttribute="leading" secondItem="FDT-YW-jGl" secondAttribute="leading" constant="-232" id="BrW-Tf-T8g"/>
                             <constraint firstItem="FDT-YW-jGl" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="-7" id="IoK-bi-fgp"/>
+                            <constraint firstItem="gJx-zM-x3W" firstAttribute="trailing" secondItem="FDT-YW-jGl" secondAttribute="trailing" id="R4p-AM-aTa"/>
                             <constraint firstItem="Flr-YN-Axw" firstAttribute="top" secondItem="P20-ZL-au5" secondAttribute="bottom" constant="8" symbolic="YES" id="SEh-eb-TMn"/>
                             <constraint firstItem="P20-ZL-au5" firstAttribute="trailing" secondItem="FDT-YW-jGl" secondAttribute="trailing" constant="231" id="SNs-Ku-XW4"/>
                             <constraint firstAttribute="trailing" secondItem="P20-ZL-au5" secondAttribute="trailing" constant="20" symbolic="YES" id="Uo2-6M-ZMW"/>
                             <constraint firstItem="P20-ZL-au5" firstAttribute="width" secondItem="Zxz-X9-WrY" secondAttribute="width" id="XZL-sH-FuA"/>
                             <constraint firstItem="Zxz-X9-WrY" firstAttribute="leading" secondItem="FDT-YW-jGl" secondAttribute="leading" constant="-232" id="Yd4-Ef-vMn"/>
                             <constraint firstItem="FDT-YW-jGl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-28" id="YjV-fa-TJX"/>
+                            <constraint firstItem="gJx-zM-x3W" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="dee-i3-d6M"/>
                             <constraint firstAttribute="centerX" secondItem="FDT-YW-jGl" secondAttribute="centerX" id="e9B-af-aLG"/>
                             <constraint firstItem="P20-ZL-au5" firstAttribute="trailing" secondItem="FDT-YW-jGl" secondAttribute="trailing" constant="231" id="fdH-Ql-zXd"/>
+                            <constraint firstItem="gJx-zM-x3W" firstAttribute="top" secondItem="GgO-Ur-1VB" secondAttribute="bottom" id="mz2-oQ-SxQ"/>
+                            <constraint firstItem="FDT-YW-jGl" firstAttribute="top" secondItem="gJx-zM-x3W" secondAttribute="bottom" constant="8" symbolic="YES" id="pKI-Ky-Lnh"/>
                             <constraint firstItem="Zxz-X9-WrY" firstAttribute="leading" secondItem="FDT-YW-jGl" secondAttribute="leading" id="qme-DH-WJL"/>
                             <constraint firstItem="P20-ZL-au5" firstAttribute="height" secondItem="Zxz-X9-WrY" secondAttribute="height" id="xm1-Y2-YdQ"/>
                         </constraints>
@@ -103,8 +110,8 @@
                     <navigationItem key="navigationItem" title="Cards" id="h45-xf-hyk">
                         <barButtonItem key="rightBarButtonItem" title="History" id="70e-co-Wg0"/>
                     </navigationItem>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="cardsView" destination="gJx-zM-x3W" id="cx5-X4-RhV"/>
                         <outlet property="modeButton" destination="FDT-YW-jGl" id="sKA-5f-xK1"/>
                         <outlet property="scoreLabel" destination="Zxz-X9-WrY" id="42b-bS-InC"/>
                     </connections>
@@ -148,15 +155,22 @@
                                     <action selector="redealButton:" destination="g5W-wY-IfE" eventType="touchUpInside" id="iVM-bp-WJY"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meA-wo-1uM">
+                                <rect key="frame" x="16" y="20" width="568" height="486"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="m6g-2M-nwX" secondAttribute="trailing" constant="20" symbolic="YES" id="7JL-Jw-D4m"/>
+                            <constraint firstItem="Msq-ck-2Il" firstAttribute="top" secondItem="meA-wo-1uM" secondAttribute="bottom" constant="8" symbolic="YES" id="8eZ-QP-VGh"/>
                             <constraint firstItem="m6g-2M-nwX" firstAttribute="width" secondItem="Msq-ck-2Il" secondAttribute="width" id="9u9-UH-TJZ"/>
+                            <constraint firstItem="meA-wo-1uM" firstAttribute="top" secondItem="Psh-U7-0Z6" secondAttribute="bottom" id="HtC-rK-j5n"/>
+                            <constraint firstItem="meA-wo-1uM" firstAttribute="centerX" secondItem="Psh-U7-0Z6" secondAttribute="centerX" id="IAn-iC-tHM"/>
                             <constraint firstItem="m6g-2M-nwX" firstAttribute="height" secondItem="Msq-ck-2Il" secondAttribute="height" id="TGb-1Y-EK5"/>
                             <constraint firstItem="Msq-ck-2Il" firstAttribute="leading" secondItem="kaV-PA-TVe" secondAttribute="leading" constant="20" symbolic="YES" id="WcW-OJ-1Lc"/>
                             <constraint firstItem="RY9-wt-8AR" firstAttribute="top" secondItem="Msq-ck-2Il" secondAttribute="bottom" constant="8" symbolic="YES" id="cHq-KU-qmY"/>
                             <constraint firstItem="RY9-wt-8AR" firstAttribute="top" secondItem="m6g-2M-nwX" secondAttribute="bottom" constant="8" symbolic="YES" id="mSW-Kz-DIZ"/>
+                            <constraint firstItem="meA-wo-1uM" firstAttribute="leading" secondItem="kaV-PA-TVe" secondAttribute="leadingMargin" id="oic-PO-VYo"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="VWD-ib-hS9"/>
@@ -164,6 +178,7 @@
                         <barButtonItem key="rightBarButtonItem" title="History" id="0PE-ht-1EM"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cardsView" destination="meA-wo-1uM" id="wdT-Eb-hCf"/>
                         <outlet property="scoreLabel" destination="Msq-ck-2Il" id="Rrp-g7-7hD"/>
                     </connections>
                 </viewController>
