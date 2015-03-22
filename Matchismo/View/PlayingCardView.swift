@@ -9,10 +9,10 @@
 import Foundation
 
 
-class PlayingCardView :UIView{
+class PlayingCardView : CardView{
     var CORNER_FONT_STANDARD_HEIGHT = CGFloat(180.0)
     var CORNER_RADIUS = CGFloat(12.0)
-   
+    
     var _suit : String?;
     var suit : String{
         get{
@@ -21,8 +21,11 @@ class PlayingCardView :UIView{
             }
             return _suit!;
         }
+        set(value){
+            _suit = value;
+        }
     }
-
+    
     var _rank : String?;
     var rank : String{
         get{
@@ -31,8 +34,11 @@ class PlayingCardView :UIView{
             }
             return _rank!;
         }
+        set(value){
+            _rank = value;
+        }
     }
-
+    
     var _faceUp : Bool?;
     var faceUp : Bool{
         get{
@@ -41,8 +47,11 @@ class PlayingCardView :UIView{
             }
             return _faceUp!;
         }
+        set(value){
+            _faceUp = value;
+        }
     }
-
+    
     
     func cornerScaleFactor() -> CGFloat {
         return self.bounds.size.height / CORNER_FONT_STANDARD_HEIGHT
@@ -67,7 +76,14 @@ class PlayingCardView :UIView{
         
         UIColor.blackColor().setStroke()
         roundedRect.stroke()
-        drawCorners()
+        if(!faceUp){
+            var image = UIImage(named: "cardback");
+            image.drawInRect(rect);
+            
+        }else{
+           
+            drawCorners()
+        }
     }
     
     func setup(){
@@ -106,8 +122,8 @@ class PlayingCardView :UIView{
         super.init(frame: frame)
         self.setup()
     }
-
-    required init(coder aDecoder: NSCoder) {
+    
+    required override init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }

@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     let TWO_CARDS = 0;
     let THREE_CARDS = 1;
+    let CARD_COUNT = 32;
     
-    @IBOutlet var cards: [PlayingCardView]!
+    var cards = [CardView]()
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var modeButton: UIView!
     @IBOutlet weak var cardsView: UIView!
@@ -23,19 +24,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         get{
             if _game == nil
             {
-                _game = CardMatchingGame(cardCount: self.cards.count, deck: createDeck());
+                _game = CardMatchingGame(cardCount: 81, deck: createDeck());
             }
             return _game!;
         }
-    }
-    
-    @IBAction func touchCardButton(sender: UIButton) {
-        var chosenButtonIndex = find(cardButtons!, sender)!;
-        var flipResult = game.chooseCardAtIndex(chosenButtonIndex);
-        if(modeButton != nil){
-            modeButton.userInteractionEnabled = false;
-        }
-        updateUI();
     }
     
     @IBAction func redealButton(sender: UIButton) {
@@ -43,74 +35,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func changeMode(sender: UISegmentedControl) {
-        resetGame();
         game.mode = sender.selectedSegmentIndex;
     }
     
-    override func viewDidLoad() {
-        setupGrid()
-        var numberOfRows = Int(grid.rowCount);
-        var numberOfColumns = Int(grid.columnCount);
-        for var i = 0; i < numberOfRows; i++ {
-            for var j = 0; j < numberOfColumns; j++ {
-                var frame = grid.frameOfCellAtRow(UInt(i), inColumn: UInt(j));
-                var center = grid.centerOfCellAtRow(UInt(i), inColumn: UInt(j));
-                var cardView = PlayingCardView(frame: frame)
-                var tapGesture = UITapGestureRecognizer(target: cardView, action: Selector("tap:"))
-                tapGesture.delegate = self
-                //cardView.gestureRecognizers.append()
-                cardsView.addSubview(cardView)
-            }
-        }
-        cardsView.contentMode = UIViewContentMode.ScaleToFill
-    }
-    
-    func tap(){
-        
-    }
-    
-    func setupGrid(){
-        grid = Grid();
-        grid.cellAspectRatio = 0.65;
-        grid.size = cardsView.bounds.size;
-        var sizeView = cardsView.bounds.size;
-        var superViewSize = cardsView.superview?.bounds.size
-        grid.minimumNumberOfCells = 12;
-        
+    override func viewDidAppear(animated: Bool) {
+        setupGrid();
+        createCards(animated: true)
+        dealCards();
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        setupGrid();
-        updateUI();
+        refreshLayout();
     }
     
-    func createDeck() -> Deck{
-        return PlayingCardDeck()
-    }
     
     func updateUI(){
-        var numberOfRows = Int(grid.rowCount);
-        var numberOfColumns = Int(grid.columnCount);
-        for var i = 0; i < numberOfRows; i++ {
-            for var j = 0; j < numberOfColumns; j++ {
-                var frame = grid.frameOfCellAtRow(UInt(i), inColumn: UInt(j));
-                var center = grid.centerOfCellAtRow(UInt(i), inColumn: UInt(j));
-                var cardView = PlayingCardView(frame: frame)
-                
-                
-                cardsView.addSubview(cardView)
-            }
-        }
+        updateCardsState();
         scoreLabel.text = "Score \(self.game.score)"
-        
-    }
-    
-    func titleForCard(card:Card) -> String{
-        return card.chosen ? card.contents : "";
-    }
-    
-    func backgroundImageForCard(card:Card) -> UIImage{
-        return UIImage(named: card.chosen ? "cardfront" : "cardback");
     }
     
     func resetGame(){
@@ -118,7 +59,191 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         if(modeButton != nil){
             modeButton.userInteractionEnabled = true;
         }
-        updateUI();
+        removeAllCards();
+        createCards(animated: true);
+        dealCards();
+    }
+    
+    func setupGrid(){
+        grid = Grid();
+        grid.cellAspectRatio = 0.70;
+        grid.size = cardsView.bounds.size;
+        var sizeView = cardsView.bounds.size;
+        var superViewSize = cardsView.superview?.bounds.size
+        grid.minimumNumberOfCells = UInt(CARD_COUNT);
+    }
+    
+    func createCards(animated:Bool = false){
+        cards = [CardView]();
+        var index = 0;
+        for card in game.cards {
+            var cardView = createCardView(card)
+            cardView.cardIndex = index;
+            index++;
+            cardsView.addSubview(cardView)
+            cardView.frame = grid.frameOfCellAtRow(0, inColumn: 0);
+            cardView.setNeedsDisplay();
+            cards.append(cardView);
+        }
+    }
+    
+    func refreshLayout(){
+        setupGrid()
+        var numberOfRows = Int(grid.rowCount);
+        var numberOfColumns = Int(grid.columnCount);
+        var column = 0;
+        var row = 0;
+        
+        var frame = grid.frameOfCellAtRow(UInt(0), inColumn: UInt(0));
+        
+        for v in cardsView.subviews {
+            var center = grid.centerOfCellAtRow(UInt(row), inColumn: UInt(column));
+            var cardView = v as CardView
+            cardView.frame = frame;
+            cardView.center = center;
+            cardView.setNeedsDisplay();
+            
+            if(column == numberOfColumns - 1){
+                column = 0;
+                row++;
+            }
+            else{
+                column++;
+            }
+        }
+    }
+    
+    func dealCards(){
+        var numberOfRows = Int(grid.rowCount);
+        var numberOfColumns = Int(grid.columnCount);
+        var column = 0;
+        var row = 0;
+        
+        var frame = grid.frameOfCellAtRow(UInt(0), inColumn: UInt(0));
+        
+        for v in cards {
+            var center = grid.centerOfCellAtRow(UInt(row), inColumn: UInt(column));
+            var cardView = v as CardView
+            
+            UIView.animateWithDuration(0.5,
+                delay:0,
+                options: nil,
+                animations:{
+                    cardView.frame = frame;
+                    cardView.center = center;
+                    cardView.setNeedsDisplay();
+                },
+                completion:{ (finished:Bool) in });
+            
+            if(column == numberOfColumns - 1){
+                column = 0;
+                row++;
+            }
+            else{
+                column++;
+            }
+        }
+    }
+    
+    
+    func createCardView(card : Card) -> CardView{
+        var cardView = PlayingCardView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        var playingCard = card as PlayingCard;
+        
+        cardView.rank = PlayingCard.rankStrings[playingCard.rank];
+        cardView.suit = playingCard.suit;
+        cardView.faceUp = false;
+        
+        var tapGesture = UITapGestureRecognizer(target: self, action: Selector("tap:"))
+        tapGesture.delegate = self
+        cardView.addGestureRecognizer(tapGesture)
+        
+        return cardView;
+    }
+    
+    func updateCardsState(){
+        for v in cardsView.subviews {
+            var cardView = v as PlayingCardView
+            var index  = cardView.cardIndex;
+            var card = self.game.cardAtIndex(index) as PlayingCard;
+            
+            UIView.transitionWithView(cardView,
+                duration:0.5,
+                options: nil,
+                animations:{
+                    if (cardView.faceUp && !card.chosen) {
+                        cardView.faceUp = false
+                    }else if(!cardView.faceUp && card.chosen){
+                        
+                    }
+                    cardView.setNeedsDisplay();
+                },
+                completion:{ (finished:Bool) in });
+            if(card.matched){
+                for gr in cardView.gestureRecognizers{
+                    if(gr is UITapGestureRecognizer){
+                        cardView.removeGestureRecognizer(gr as UIGestureRecognizer);
+                    }
+                }
+                cardView.userInteractionEnabled = false;
+                cardView.alpha = 0.6;
+            }
+        }
+    }
+    
+    func collectAllCards(){
+        UIView.animateWithDuration(1, delay: 0, options: nil, animations: {
+            for cardView in self.cardsView.subviews {
+                var c = cardView as PlayingCardView
+                var center = self.grid.centerOfCellAtRow(0, inColumn: 0)
+                c.center = center;
+                c.faceUp = false;
+                c.setNeedsDisplay();
+            }
+            }, completion: { (finished : Bool) -> Void in
+                self.removeAllCards();
+        })
+    }
+    
+    func removeAllCards(){
+        for cardView in cards {
+            var c = cardView as PlayingCardView
+            var center = self.grid.centerOfCellAtRow(0, inColumn: 0)
+            
+            UIView.animateWithDuration(1, delay: 0, options: nil, animations: {
+                c.center = center;
+                c.faceUp = false;
+                c.setNeedsDisplay();
+                }, completion: { (finished : Bool) -> Void in
+                    c.removeFromSuperview();
+            })
+        }
+    }
+    
+    func createDeck() -> Deck{
+        return PlayingCardDeck()
+    }
+    
+    func tap(sender:UITapGestureRecognizer){
+        var v = sender.view as PlayingCardView
+        if sender.state == UIGestureRecognizerState.Ended {
+            var index = v.cardIndex;
+            var card = self.game.cardAtIndex(index);
+            
+            if(!card!.matched){
+                self.game.chooseCardAtIndex(index)
+                UIView.transitionWithView(v,
+                    duration:0.5,
+                    options: UIViewAnimationOptions.TransitionFlipFromLeft,
+                    animations:{
+                        v.faceUp = !v.faceUp;
+                        v.setNeedsDisplay();
+                    },
+                    completion:{ (finished:Bool) in
+                        self.updateUI();
+                });
+            }
+        }
     }
     
     func getMessage(flipResult : FlipResult) -> NSMutableAttributedString{
@@ -146,5 +271,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         string = NSMutableAttributedString(string: stringRaw);
         return string;
     }
+    
+    func titleForCard(card:Card) -> String{
+        return card.chosen ? card.contents : "";
+    }
+    
+    func backgroundImageForCard(card:Card) -> UIImage{
+        return UIImage(named: card.chosen ? "cardfront" : "cardback");
+    }
+    
 }
 

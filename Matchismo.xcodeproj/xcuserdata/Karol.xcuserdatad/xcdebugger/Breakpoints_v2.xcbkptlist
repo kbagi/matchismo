@@ -6,15 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Matchismo/Model/CardMatchingGame.swift"
-            timestampString = "430652826.026225"
+            timestampString = "431178091.353934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "chooseCardAtIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -22,32 +22,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Matchismo/ViewController.swift"
-            timestampString = "430788483.46626"
+            filePath = "Matchismo/Model/CardMatchingGame.swift"
+            timestampString = "431178303.983193"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "chooseCardAtIndex(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Matchismo.CardMatchingGame.chooseCardAtIndex (Matchismo.CardMatchingGame)(Swift.Int) -&gt; Matchismo.FlipResult"
+                  moduleName = "Matchismo"
+                  urlString = "file:///Users/Karol/Development/iOS/Projects/Matchismo/Matchismo/Model/CardMatchingGame.swift"
+                  timestampString = "431193277.560051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Matchismo.CardMatchingGame.chooseCardAtIndex (Matchismo.CardMatchingGame)(Swift.Int) -&gt; Matchismo.FlipResult"
+                  moduleName = "Matchismo"
+                  urlString = "file:///Users/Karol/Development/iOS/Projects/Matchismo/Matchismo/Model/CardMatchingGame.swift"
+                  timestampString = "431193277.560212"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1283">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Matchismo/ViewController.swift"
-            timestampString = "430789885.610474"
+            timestampString = "431206440.207686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "dealCards()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

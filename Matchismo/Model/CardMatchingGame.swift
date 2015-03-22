@@ -71,6 +71,7 @@ class CardMatchingGame {
                         }
                     }else{
                         score -= MISMATCH_PENALTY
+                        card.chosen = false;
                         for card in flipResult.cards
                         {
                             card.chosen = false;

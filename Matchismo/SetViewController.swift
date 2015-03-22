@@ -10,16 +10,42 @@ import UIKit
 
 class SetViewController: ViewController {
 //    
-//    override var game:CardMatchingGame{
-//        get{
-//            if _game == nil
-//            {
-//                _game = SetFindingGame(cardCount: self.cardButtons.count, deck: createDeck());
-//            }
-//            return _game!;
-//        }
-//    }
-//    
+    override var game:CardMatchingGame{
+        get{
+            if _game == nil
+            {
+                _game = SetFindingGame(cardCount: 81, deck: createDeck());
+            }
+            return _game!;
+        }
+    }
+    
+    var _symbol : SetCard.Symbol?;
+    var symbol : SetCard.Symbol{
+        get{
+            if(_symbol == nil){
+                _symbol = SetCard.Symbol();
+            }
+            return _symbol!;
+        }
+        set(newValue){
+            _symbol = newValue;
+        }
+    }
+
+    
+    override func setupGrid(){
+        
+    }
+    
+    override func createCards(animated: Bool = true){
+        
+    }
+    
+    override func dealCards(){
+        
+    }
+//
 //    //    override func touchCardButton(sender: UIButton) {
 //    //        var chosenButtonIndex = find(cardButtons!, sender)!;
 //    //        var message = game.chooseCardAtIndex(chosenButtonIndex);
@@ -43,9 +69,9 @@ class SetViewController: ViewController {
 //        
 //    }
 //    
-//    override func createDeck() -> Deck{
-//        return SetDeck()
-//    }
+    override func createDeck() -> Deck{
+        return SetDeck()
+    }
 //    override func viewWillAppear(animated: Bool) {
 //        redrawCards()    }
 //    

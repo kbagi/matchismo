@@ -19,6 +19,8 @@
 		F98679E119983217004A08BB /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98679E019983217004A08BB /* PlayingCardDeck.swift */; };
 		F9BE9A3F19AD24AA0087810B /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BE9A3E19AD24AA0087810B /* Grid.m */; };
 		F9BE9A4319AD400C0087810B /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE9A4219AD400C0087810B /* PlayingCardView.swift */; };
+		F9F4344B19B236FA001D431E /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4344A19B236FA001D431E /* SetCardView.swift */; };
+		F9F4344D19B23703001D431E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4344C19B23703001D431E /* CardView.swift */; };
 		F9F5EAAF199FC7C8008C4757 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAAE199FC7C8008C4757 /* SetViewController.swift */; };
 		F9F5EAB1199FCA29008C4757 /* SetFindingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAB0199FCA29008C4757 /* SetFindingGame.swift */; };
 		F9F5EAB3199FCB72008C4757 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5EAB2199FCB72008C4757 /* SetCard.swift */; };
@@ -56,6 +58,8 @@
 		F9BE9A3D19AD24AA0087810B /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
 		F9BE9A3E19AD24AA0087810B /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		F9BE9A4219AD400C0087810B /* PlayingCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingCardView.swift; path = View/PlayingCardView.swift; sourceTree = "<group>"; };
+		F9F4344A19B236FA001D431E /* SetCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
+		F9F4344C19B23703001D431E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F9F5EAAE199FC7C8008C4757 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		F9F5EAB0199FCA29008C4757 /* SetFindingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetFindingGame.swift; path = Model/SetFindingGame.swift; sourceTree = "<group>"; };
 		F9F5EAB2199FCB72008C4757 /* SetCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetCard.swift; path = Model/SetCard.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				F9BE9A3E19AD24AA0087810B /* Grid.m */,
 				F9BE9A3C19AD24AA0087810B /* Matchismo-Bridging-Header.h */,
 				F9BE9A4219AD400C0087810B /* PlayingCardView.swift */,
+				F9F4344A19B236FA001D431E /* SetCardView.swift */,
+				F9F4344C19B23703001D431E /* CardView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -281,7 +287,9 @@
 				F9F5EAAF199FC7C8008C4757 /* SetViewController.swift in Sources */,
 				F98679DD19983194004A08BB /* PlayingCard.swift in Sources */,
 				F9F5EAB1199FCA29008C4757 /* SetFindingGame.swift in Sources */,
+				F9F4344B19B236FA001D431E /* SetCardView.swift in Sources */,
 				F9BE9A4319AD400C0087810B /* PlayingCardView.swift in Sources */,
+				F9F4344D19B23703001D431E /* CardView.swift in Sources */,
 				F96444DA1997C16200105347 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
